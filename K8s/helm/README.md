@@ -15,7 +15,7 @@ $ kubectl create ns robot-shop
 $ helm install robot-shop --namespace robot-shop .
 ```
 
-## Images
+## Imagess
 
 By default the images are pulled from Docker Hub. Setting `image.repo` this can be changed, for example:
 
