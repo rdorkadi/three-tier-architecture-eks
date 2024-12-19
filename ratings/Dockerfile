@@ -1,23 +1,31 @@
 #
 # Build the app
-#
+# the official PHP image with Apache as the web server.
 FROM php:7.4-apache
 
+#Installs essential packages (unzip, libzip-dev) and 
+#PHP extensions (pdo_mysql, opcache, zip) necessary 
+#for the application to run, particularly for working with databases and optimizing PHP performance.
 RUN apt-get update && apt-get install -yqq unzip libzip-dev \
     && docker-php-ext-install pdo_mysql opcache zip
 
-# Enable AutoProfile for PHP which is currently opt-in beta
+# creates a configuration file in the PHP configuration directory to enable this feature.
 RUN echo "instana.enable_auto_profile=1" > "/usr/local/etc/php/conf.d/zzz-instana-extras.ini"
 
-# relax permissions on status
+# Copies a custom Apache status configuration file into the container.
 COPY status.conf /etc/apache2/mods-available/status.conf
-# Enable Apache mod_rewrite and status
+
+# Enables Apache modules mod_rewrite and mod_status
 RUN a2enmod rewrite && a2enmod status
 
+#working directory is set to /var/www/html
 WORKDIR /var/www/html
 
+#The html/ directory is copied into the container.
 COPY html/ /var/www/html
 
+#Installs composer and runs composer install to 
+#install PHP dependencies as defined in the composer.json file.
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 RUN composer install
 
