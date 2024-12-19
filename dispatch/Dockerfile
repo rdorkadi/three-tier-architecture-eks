@@ -1,5 +1,5 @@
 #Base image
-FROM golang:1.17
+FROM golang:latest
 
 #sets working directory to /go/src/app
 WORKDIR /go/src/app

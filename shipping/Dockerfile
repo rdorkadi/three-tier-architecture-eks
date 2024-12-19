@@ -2,7 +2,7 @@
 # Build
 
 #Install base image that will be used to create container
-FROM debian:10 AS build
+FROM debian:latest AS build
 
 #Installs Maven, a build automation tool used for Java projects
 RUN apt-get update && apt-get -y install maven

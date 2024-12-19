@@ -1,5 +1,5 @@
 #Installs official MySQL 5.7 image as the base image
-FROM mysql:5.7
+FROM mysql:latest
 
 #This command defines a mount point for data inside the container at /data. 
 #It ensures that any data written to this directory persists even if the container is deleted, 
