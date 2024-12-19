@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: deploy-payment
+  name: deploy-payment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: deploy-payment
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: deploy-payment
+    spec:
+      containers:
+      - image: riyadorkadi/project1-payment:v1
+        name: project1-payment
+        ports:
+        - containerPort: 8080
+        resources: {}
+status: {}

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: deploy-rating
+  name: deploy-rating
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: deploy-rating
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: deploy-rating
+    spec:
+      containers:
+      - image: riyadorkadi/project1-rating:v1
+        name: project1-rating
+        ports:
+        - containerPort: 80
+        resources: {}
+status: {}

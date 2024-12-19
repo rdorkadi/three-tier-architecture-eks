@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: deploy-web
+  name: deploy-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: deploy-web
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: deploy-web
+    spec:
+      containers:
+      - image: riyadorkadi/project1-web:v1
+        name: project1-web
+        ports:
+        - containerPort: 8080
+        resources: {}
+status: {}

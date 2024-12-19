@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: deploy-cart
+  name: deploy-cart
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: deploy-cart
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: deploy-cart
+    spec:
+      containers:
+      - image: riyadorkadi/project1-cart:v1
+        name: project1-cart
+        ports:
+        - containerPort: 8080
+        resources: {}
+status: {}
