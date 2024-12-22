@@ -4,7 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     app: deploy-catalogue
-  name: service-catalogue
+  name: catalogue
 spec:
   ports:
   - port: 8080
