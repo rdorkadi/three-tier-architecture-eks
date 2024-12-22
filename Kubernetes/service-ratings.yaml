@@ -3,14 +3,14 @@ kind: Service
 metadata:
   creationTimestamp: null
   labels:
-    app: deploy-rating
-  name: service-rating
+    app: deploy-ratings
+  name: service-ratings
 spec:
   ports:
   - port: 80
     protocol: TCP
     targetPort: 80
   selector:
-    app: deploy-rating
+    app: deploy-ratings
 status:
   loadBalancer: {}

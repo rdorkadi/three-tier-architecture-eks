@@ -3,23 +3,23 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: deploy-rating
-  name: deploy-rating
+    app: deploy-ratings
+  name: deploy-ratings
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: deploy-rating
+      app: deploy-ratings
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: deploy-rating
+        app: deploy-ratings
     spec:
       containers:
-      - image: riyadorkadi/project1-rating:v1
-        name: project1-rating
+      - image: riyadorkadi/project1-ratings:v1
+        name: project1-ratings
         ports:
         - containerPort: 80
         resources: {}
