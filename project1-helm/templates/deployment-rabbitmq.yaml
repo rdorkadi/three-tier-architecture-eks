@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: deploy-rabbitmq
+  name: deploy-rabbitmq
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: deploy-rabbitmq
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: deploy-rabbitmq
+    spec:
+      containers:
+      - image: rabbitmq:latest
+        name: rabbitmq
+        ports:
+        - containerPort: 15672
+        - containerPort: 5672
+        - containerPort: 4369
+        resources: {}
+status: {}

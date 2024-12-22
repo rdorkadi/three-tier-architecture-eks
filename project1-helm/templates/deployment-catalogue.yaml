@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: deploy-catalogue
+  name: deploy-catalogue
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: deploy-catalogue
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: deploy-catalogue
+    spec:
+      containers:
+      - image: riyadorkadi/project1-catalogue:v1
+        name: project1-catalogue
+        ports:
+        - containerPort: 8080
+        resources: {}
+status: {}

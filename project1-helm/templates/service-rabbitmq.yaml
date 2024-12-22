@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: deploy-rabbitmq
+  name: rabbitmq
+spec:
+  ports:
+  - port: 15672
+    name: rabbitmq-management
+    protocol: TCP
+    targetPort: 15672
+    ports:
+  - port: 5672
+    name: rabbitmq
+    protocol: TCP
+    targetPort: 5672
+    ports:
+  - port: 4369
+    name: rabbitmq-epmd
+    protocol: TCP
+    targetPort: 4369
+  selector:
+    app: deploy-rabbitmq
+status:
+  loadBalancer: {}
