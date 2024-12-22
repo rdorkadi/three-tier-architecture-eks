@@ -4,7 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     app: deploy-ratings
-  name: service-ratings
+  name: ratings
 spec:
   ports:
   - port: 80

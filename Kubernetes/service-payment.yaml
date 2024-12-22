@@ -4,7 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     app: deploy-payment
-  name: service-payment
+  name: payment
 spec:
   ports:
   - port: 8080

@@ -4,7 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     app: deploy-user
-  name: service-user
+  name: user
 spec:
   ports:
   - port: 8080

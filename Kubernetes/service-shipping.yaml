@@ -4,7 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     app: deploy-shipping
-  name: service-shipping
+  name: shipping
 spec:
   ports:
   - port: 8080

@@ -4,7 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     app: deploy-mongo
-  name: service-mongo
+  name: mongo
 spec:
   ports:
   - port: 27017
