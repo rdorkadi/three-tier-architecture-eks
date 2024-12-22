@@ -4,6 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     app: deploy-rabbitmq
+    projectName: {{ .Values.labels.projectName }}
   name: rabbitmq
 spec:
   ports:

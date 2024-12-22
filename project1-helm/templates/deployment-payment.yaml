@@ -4,6 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     app: deploy-payment
+    projectName: {{ .Values.labels.projectName }}
   name: deploy-payment
 spec:
   replicas: 1
@@ -18,7 +19,7 @@ spec:
         app: deploy-payment
     spec:
       containers:
-      - image: riyadorkadi/project1-payment:v1
+      - image: {{ .Values.image.repo}}/project1-payment:{{ .Values.image.version}}
         name: project1-payment
         ports:
         - containerPort: 8080

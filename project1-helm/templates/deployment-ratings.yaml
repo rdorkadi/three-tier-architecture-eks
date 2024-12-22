@@ -4,6 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     app: deploy-ratings
+    projectName: {{ .Values.labels.projectName }}
   name: deploy-ratings
 spec:
   replicas: 1
@@ -18,7 +19,7 @@ spec:
         app: deploy-ratings
     spec:
       containers:
-      - image: riyadorkadi/project1-ratings:v1
+      - image: {{ .Values.image.repo}}/project1-ratings:{{ .Values.image.version}}
         name: project1-ratings
         ports:
         - containerPort: 80

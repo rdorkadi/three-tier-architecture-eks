@@ -4,6 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     app: deploy-user
+    projectName: {{ .Values.labels.projectName }}
   name: deploy-user
 spec:
   replicas: 1
@@ -18,7 +19,7 @@ spec:
         app: deploy-user
     spec:
       containers:
-      - image: riyadorkadi/project1-user:v1
+      - image: {{ .Values.image.repo }}/project1-user:{{ .Values.image.version }}
         name: project1-user
         ports:
         - containerPort: 8080

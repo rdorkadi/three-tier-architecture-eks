@@ -4,6 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     app: deploy-shipping
+    projectName: {{ .Values.labels.projectName }}
   name: deploy-shipping
 spec:
   replicas: 1
@@ -18,7 +19,7 @@ spec:
         app: deploy-shipping
     spec:
       containers:
-      - image: riyadorkadi/project1-shipping:v1
+      - image: {{ .Values.image.repo}}/project1-shipping:{{ .Values.image.version }}
         name: project1-shipping
         ports:
         - containerPort: 8080

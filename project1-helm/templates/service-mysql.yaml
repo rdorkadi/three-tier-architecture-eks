@@ -4,6 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     app: deploy-mysql
+    projectName: {{ .Values.labels.projectName }}
   name: mysql
 spec:
   ports:

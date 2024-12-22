@@ -4,6 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     app: deploy-cart
+    projectName: {{ .Values.labels.projectName }}
   name: cart
 spec:
   ports:

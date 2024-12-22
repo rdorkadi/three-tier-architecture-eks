@@ -4,6 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     app: deploy-catalogue
+    projectName: {{ .Values.labels.projectName }}
   name: catalogue
 spec:
   ports:

@@ -4,6 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     app: deploy-mongo
+    projectName: {{ .Values.labels.projectName }}
   name: deploy-mongo
 spec:
   replicas: 1
@@ -18,7 +19,7 @@ spec:
         app: deploy-mongo
     spec:
       containers:
-      - image: riyadorkadi/project1-mongo:v1
+      - image: {{ .Values.image.repo}}/project1-mongo:{{ .Values.image.version }}
         name: project1-mongo
         ports:
         - containerPort: 27017

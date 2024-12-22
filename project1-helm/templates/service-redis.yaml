@@ -4,6 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     app: deploy-redis
+    projectName: {{ .Values.labels.projectName }}
   name: redis
 spec:
   ports:

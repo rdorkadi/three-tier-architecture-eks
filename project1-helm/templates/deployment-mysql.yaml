@@ -4,6 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     app: deploy-mysql
+    projectName: {{ .Values.labels.projectName }}
   name: deploy-mysql
 spec:
   replicas: 1
@@ -18,7 +19,7 @@ spec:
         app: deploy-mysql
     spec:
       containers:
-      - image: riyadorkadi/project1-mysql:v1
+      - image: {{ .Values.image.repo }}/project1-mysql:{{ .Values.image.version}}
         name: project1-mysql
         ports:
         - containerPort: 3306

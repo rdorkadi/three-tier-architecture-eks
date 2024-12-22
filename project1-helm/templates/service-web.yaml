@@ -4,6 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     app: deploy-web
+    projectName: {{ .Values.labels.projectName }}
   name: web
 spec:
   ports:

@@ -4,6 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     app: deploy-payment
+    projectName: {{ .Values.labels.projectName }}
   name: payment
 spec:
   ports:

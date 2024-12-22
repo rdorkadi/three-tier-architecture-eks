@@ -4,6 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     app: deploy-catalogue
+    projectName: {{ .Values.labels.projectName }}
   name: deploy-catalogue
 spec:
   replicas: 1
@@ -18,7 +19,7 @@ spec:
         app: deploy-catalogue
     spec:
       containers:
-      - image: riyadorkadi/project1-catalogue:v1
+      - image: {{ .Values.image.repo }}/project1-catalogue:{{ .Values.image.version }}
         name: project1-catalogue
         ports:
         - containerPort: 8080

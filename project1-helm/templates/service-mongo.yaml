@@ -4,6 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     app: deploy-mongo
+    projectName: {{ .Values.labels.projectName }}
   name: mongo
 spec:
   ports:
