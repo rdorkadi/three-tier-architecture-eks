@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'pwd'
+                sh 'ls'
                 sh 'cd three-tier-architecture-eks/web'
                 script {
                     dockerImage = docker.build("project1-web:${env.BUILD_NUMBER}")
