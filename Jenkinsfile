@@ -22,7 +22,8 @@ pipeline {
                     docker.withRegistry('https://992382444469.dkr.ecr.us-east-1.amazonaws.com/project1-web', 'ecr:us-east-1:aws-credentials') {
                     dockerImageWeb.push("${env.BUILD_NUMBER}")
                     dockerImageWeb.push("latest")
-
+                }
+                    docker.withRegistry('https://992382444469.dkr.ecr.us-east-1.amazonaws.com/project1-cart', 'ecr:us-east-1:aws-credentials') {
                     dockerImageCart.push("${env.BUILD_NUMBER}")
                     dockerImageCart.push("latest")
                 }
