@@ -11,7 +11,8 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    dockerImage = docker.build("project1-web:${env.BUILD_NUMBER}", "./web")
+                    dockerImageWeb = docker.build("project1-web:${env.BUILD_NUMBER}", "./web")
+                    dockerImageCart = docker.build("project1-cart:${env.BUILD_NUMBER}", "./cart")
                 }
             } 
         }
@@ -19,8 +20,11 @@ pipeline {
             steps {
                 script{
                     docker.withRegistry('https://992382444469.dkr.ecr.us-east-1.amazonaws.com/project1-web', 'ecr:us-east-1:aws-credentials') {
-                    dockerImage.push("${env.BUILD_NUMBER}")
-                    dockerImage.push("latest")
+                    dockerImageWeb.push("${env.BUILD_NUMBER}")
+                    dockerImageWeb.push("latest")
+
+                    dockerImageCart.push("${env.BUILD_NUMBER}")
+                    dockerImageCart.push("latest")
                 }
             }
         }
