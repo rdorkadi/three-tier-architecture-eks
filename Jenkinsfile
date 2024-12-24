@@ -11,8 +11,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh 'cd web'
-                    dockerImage = docker.build("project1-web:${env.BUILD_NUMBER}")
+                    dockerImage = docker.build("project1-web:${env.BUILD_NUMBER}", "./web")
                 }
             } 
         }
