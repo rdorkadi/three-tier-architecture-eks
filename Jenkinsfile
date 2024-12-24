@@ -1,8 +1,16 @@
 pipeline {
     agent any
     stages {
+        stage('Clone repository') { 
+            steps { 
+                script{
+                checkout scm
+                }
+            }
+        }
         stage('Build') {
             steps {
+                sh 'pwd'
                 sh 'cd three-tier-architecture-eks/web'
                 script {
                     dockerImage = docker.build("project1-web:${env.BUILD_NUMBER}")
