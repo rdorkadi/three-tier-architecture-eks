@@ -91,11 +91,9 @@ pipeline {
                 }
                 }
             }
-            // steps {
-            //     install helm
-            //     helm install --set repo=ECRRepo project1-release ../project1-helm
-                
-            // }
+            steps {
+                helm install --set image.repo=992382444469.dkr.ecr.us-east-1.amazonaws.com --set image.version=latest project1-release ./project1-helm
+            }
         }
     }
 }
