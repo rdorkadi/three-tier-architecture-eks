@@ -21,27 +21,6 @@ The various services in the sample application already include all required Inst
 
 To see the application performance results in the Instana dashboard, you will first need an Instana account. Don't worry a [trial account](https://instana.com/trial?utm_source=github&utm_medium=robot_shop) is free.
 
-## Build from Source
-To optionally build from source (you will need a newish version of Docker to do this) use Docker Compose. Optionally edit the `.env` file to specify an alternative image registry and version tag; see the official [documentation](https://docs.docker.com/compose/env-file/) for more information.
-
-To download the tracing module for Nginx, it needs a valid Instana agent key. Set this in the environment before starting the build.
-
-```shell
-$ export INSTANA_AGENT_KEY="<your agent key>"
-```
-
-Now build all the images.
-
-```shell
-$ docker-compose build
-```
-
-If you modified the `.env` file and changed the image registry, you need to push the images to that registry
-
-```shell
-$ docker-compose push
-```
-
 ## Run Locally
 You can run it locally for testing.
 
@@ -67,12 +46,6 @@ If you are running it locally on a Linux host you can also run the Instana [agen
 
 There is also only limited support on ARM architectures at the moment.
 
-## Marathon / DCOS
-
-The manifests for robotshop are in the *DCOS/* directory. These manifests were built using a fresh install of DCOS 1.11.0. They should work on a vanilla HA or single instance install.
-
-You may install Instana via the DCOS package manager, instructions are here: https://github.com/dcos/examples/tree/master/instana-agent/1.9
-
 ## Kubernetes
 You can run Kubernetes locally using [minikube](https://github.com/kubernetes/minikube) or on one of the many cloud providers.
 
@@ -93,9 +66,6 @@ $ kubectl get svc web
 ```
 
 If you are using a cloud Kubernetes / Openshift / Mesosphere then it will be available on the load balancer of that system.
-
-## Load Generation
-A separate load generation utility is provided in the `load-gen` directory. This is not automatically run when the application is started. The load generator is built with Python and [Locust](https://locust.io). The `build.sh` script builds the Docker image, optionally taking *push* as the first argument to also push the image to the registry. The registry and tag settings are loaded from the `.env` file in the parent directory. The script `load-gen.sh` runs the image, it takes a number of command line arguments. You could run the container inside an orchestration system (K8s) as well if you want to, an example descriptor is provided in K8s directory. For End-user Monitoring ,load is not automatically generated but by navigating through the Robotshop from the browser .For more details see the [README](load-gen/README.md) in the load-gen directory.  
 
 ## Website Monitoring / End-User Monitoring
 
