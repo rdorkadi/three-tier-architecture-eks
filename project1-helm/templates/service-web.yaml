@@ -7,6 +7,7 @@ metadata:
     projectName: {{ .Values.labels.projectName }}
   name: web
 spec:
+  type: LoadBalancer
   ports:
   - port: 8080
     protocol: TCP

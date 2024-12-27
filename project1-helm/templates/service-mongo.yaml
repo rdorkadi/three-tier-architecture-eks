@@ -5,7 +5,7 @@ metadata:
   labels:
     app: deploy-mongo
     projectName: {{ .Values.labels.projectName }}
-  name: mongo
+  name: mongodb
 spec:
   ports:
   - port: 27017
